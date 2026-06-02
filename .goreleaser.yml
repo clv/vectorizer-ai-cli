@@ -1,0 +1,74 @@
+version: 2
+
+project_name: vectorizer
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: vectorizer
+    main: ./cmd/vectorizer
+    binary: vectorizer
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+      - -X main.version={{ .Version }}
+      - -X main.commit={{ .Commit }}
+      - -X main.date={{ .Date }}
+
+archives:
+  - id: default
+    ids:
+      - vectorizer
+    name_template: >-
+      {{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}
+    format_overrides:
+      - goos: windows
+        formats:
+          - zip
+    files:
+      - README.md
+      - LICENSE
+
+checksum:
+  name_template: checksums.txt
+
+snapshot:
+  version_template: "{{ incpatch .Version }}-next"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+
+nfpms:
+  - id: linux-packages
+    package_name: vectorizer
+    ids:
+      - vectorizer
+    vendor: Cedar Lake Ventures, Inc.
+    homepage: https://vectorizer.ai
+    maintainer: Vectorizer.AI <support@vectorizer.ai>
+    description: Official command-line client for the Vectorizer.AI image vectorization API.
+    license: Apache-2.0
+    bindir: /usr/bin
+    formats:
+      - deb
+      - rpm
+      - apk
+    contents:
+      - src: README.md
+        dst: /usr/share/doc/vectorizer/README.md
+      - src: LICENSE
+        dst: /usr/share/doc/vectorizer/LICENSE
