@@ -459,10 +459,10 @@ func parseCommandFlags(fs *flag.FlagSet, args []string, valueFlags map[string]bo
 		flagArgs = append(flagArgs, args[i])
 	}
 
-	if err := fs.Parse(append(flagArgs, positional...)); err != nil {
+	if err := fs.Parse(flagArgs); err != nil {
 		return nil, err
 	}
-	return fs.Args(), nil
+	return append(fs.Args(), positional...), nil
 }
 
 func isFlagArg(arg string) bool {
