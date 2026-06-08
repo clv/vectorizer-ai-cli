@@ -52,6 +52,23 @@ changelog:
       - "^docs:"
       - "^test:"
 
+release:
+  header: |
+    ## Downloads
+
+    GitHub may collapse the raw asset list when many platform packages are attached. Use these direct links to pick the right build:
+
+    | Platform | Download |
+    | --- | --- |
+    | Windows x64 | [vectorizer_{{ .Version }}_windows_amd64.zip](https://github.com/clv/vectorizer-ai-cli/releases/download/{{ .Tag }}/vectorizer_{{ .Version }}_windows_amd64.zip) |
+    | Windows ARM64 | [vectorizer_{{ .Version }}_windows_arm64.zip](https://github.com/clv/vectorizer-ai-cli/releases/download/{{ .Tag }}/vectorizer_{{ .Version }}_windows_arm64.zip) |
+    | macOS Apple Silicon | [vectorizer_{{ .Version }}_darwin_arm64.tar.gz](https://github.com/clv/vectorizer-ai-cli/releases/download/{{ .Tag }}/vectorizer_{{ .Version }}_darwin_arm64.tar.gz) |
+    | macOS Intel | [vectorizer_{{ .Version }}_darwin_amd64.tar.gz](https://github.com/clv/vectorizer-ai-cli/releases/download/{{ .Tag }}/vectorizer_{{ .Version }}_darwin_amd64.tar.gz) |
+    | Linux x64 | [tar.gz](https://github.com/clv/vectorizer-ai-cli/releases/download/{{ .Tag }}/vectorizer_{{ .Version }}_linux_amd64.tar.gz) / [deb](https://github.com/clv/vectorizer-ai-cli/releases/download/{{ .Tag }}/vectorizer_{{ .Version }}_linux_amd64.deb) / [rpm](https://github.com/clv/vectorizer-ai-cli/releases/download/{{ .Tag }}/vectorizer_{{ .Version }}_linux_amd64.rpm) / [apk](https://github.com/clv/vectorizer-ai-cli/releases/download/{{ .Tag }}/vectorizer_{{ .Version }}_linux_amd64.apk) |
+    | Linux ARM64 | [tar.gz](https://github.com/clv/vectorizer-ai-cli/releases/download/{{ .Tag }}/vectorizer_{{ .Version }}_linux_arm64.tar.gz) / [deb](https://github.com/clv/vectorizer-ai-cli/releases/download/{{ .Tag }}/vectorizer_{{ .Version }}_linux_arm64.deb) / [rpm](https://github.com/clv/vectorizer-ai-cli/releases/download/{{ .Tag }}/vectorizer_{{ .Version }}_linux_arm64.rpm) / [apk](https://github.com/clv/vectorizer-ai-cli/releases/download/{{ .Tag }}/vectorizer_{{ .Version }}_linux_arm64.apk) |
+    | Checksums | [checksums.txt](https://github.com/clv/vectorizer-ai-cli/releases/download/{{ .Tag }}/checksums.txt) |
+
+
 nfpms:
   - id: linux-packages
     package_name: vectorizer

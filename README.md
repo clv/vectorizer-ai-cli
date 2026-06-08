@@ -4,6 +4,21 @@ Official command-line client for the [Vectorizer.AI](https://vectorizer.ai) imag
 
 The CLI is distributed as a single native executable named `vectorizer` for Windows, macOS, and Linux. It has no runtime dependency on Python, Node.js, Java, .NET, PHP, Ruby, or the generated SDK packages.
 
+## Downloads
+
+Use the download table in the [latest GitHub release](https://github.com/clv/vectorizer-ai-cli/releases/latest) to pick the build for your platform:
+
+| Platform | Artifact |
+| --- | --- |
+| Windows x64 | `vectorizer_VERSION_windows_amd64.zip` |
+| Windows ARM64 | `vectorizer_VERSION_windows_arm64.zip` |
+| macOS Apple Silicon | `vectorizer_VERSION_darwin_arm64.tar.gz` |
+| macOS Intel | `vectorizer_VERSION_darwin_amd64.tar.gz` |
+| Linux x64 | `.tar.gz`, `.deb`, `.rpm`, or `.apk` |
+| Linux ARM64 | `.tar.gz`, `.deb`, `.rpm`, or `.apk` |
+
+GitHub may collapse the raw asset list behind "Show more" when many platform packages are attached, so the release notes keep direct per-platform links at the top.
+
 ## Authentication
 
 Set your API credentials in the environment:
